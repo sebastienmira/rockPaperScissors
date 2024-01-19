@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   
+    const items =["paper", "rock", "scissors"]
+
+    function getComputerChoice(){
+      return items[Math.floor(Math.random()*3)]
+    }
+
+    function rockPaperScissors(playerSelection, computerSelection=false){
+      playerSelection=playerSelection.toLowerCase();
+
+      if (computerSelection==false){
+        computerSelection=getComputerChoice()
+      };
+
+      console.log(`You played: ${playerSelection}`)
+      console.log(`The computer played: ${computerSelection}`)
+
+      let value=(items.indexOf(playerSelection)-items.indexOf(computerSelection));// checks subracts the position in the list, if -1 or +2 = defeat, if +1 or -2 win
+
+      if (value===1 || value===-2){
+        return `You win! ${playerSelection} beats ${computerSelection}`
+      }
+      else if (value===-1 || value===2){
+        return `You loose! ${computerSelection} beats ${playerSelection}`
+      }
+      else if (value===0){
+        return `Withdrawal! You both played ${playerSelection}`
+      } 
+    }
+  </script>
+  
+</body>
+</html>
